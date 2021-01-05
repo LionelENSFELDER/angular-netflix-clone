@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "netflix-clone"
+    }
+  },
+  "defaultProject": "netflix-clone",
+  "cli": {
+    "analytics": "cb92bf64-30ef-49c0-9a92-befcfd69576a"
+  }
 }
