@@ -1,31 +1,51 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-//import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+//import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+	providedIn: 'root'
 })
 
-//@Injectable()
-export class TmdbService {
+@Injectable()
+export class TmdbService implements OnInit{
 
-  private _trendingMovies: BehaviorSubject<any[]> = new BehaviorSubject(null);
-  public trendingMovies: Observable<any[]> = this._trendingMovies.asObservable();
-  
-  constructor(private _http: HttpClient) {
-  }
+	constructor(private httpClient: HttpClient) {
+	}
 
-  async load(){
-    const { results = [] } = await this._http
-      .get(environment.trendingMoviesWeekUrl + environment.apiKey)
-      .toPromise()
-      .catch(err => err);
-      this._trendingMovies.next(results);
-      //console.log(results);
-  }
-  
+	private trendingMovies: any[] = [];
+	private api: any= {
+		key: '3047ca0f5fac291860193498b5d24f44',
+		url: 'https://api.themoviedb.org/3/',
+		moviesPoster: 'https://image.tmdb.org/t/p/original',
+		trendingMoviesWeekUrl: 'https://api.themoviedb.org/3/trending/movie/week?api_key='
+	}
+
+	ngOnInit(): void {
+		this.getTrendingMovies();
+	}
+
+	trendingMoviesSubject = new Subject<any[]>();
+
+	emitTrendingMoviesSubject(){
+		this.trendingMoviesSubject.next(this.trendingMovies)
+	}
+
+	getTrendingMovies(){
+		this.httpClient
+		.get<any[]>(this.api.trendingMoviesWeekUrl + this.api.key)
+		.subscribe(
+			(response: any)=>{
+				this.trendingMovies = Object.values(response.results);
+				console.log('Fetch from API', this.trendingMovies);
+				this.emitTrendingMoviesSubject();
+			},
+			(error)=>{ console.log('Error !' + error)}
+		)
+	}
+
+
 }
