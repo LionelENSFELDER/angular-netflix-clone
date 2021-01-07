@@ -3,18 +3,30 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
+
 <section>
 	<div class="container">
-		<div class="row row-cols-4">
-			<div class="col" *ngFor="let movie of trendingMoviesThisWeek">
-				<div class="card">
-					<img src="{{ this.apiService.api.moviesPoster + movie.poster_path }}" class="card-img-top" alt="...">
-					<div class="card-body">
-					  <h5 class="card-title">{{movie.title}}</h5>
-					</div>
-				</div>
+		<h2 class="fw-bold">Trending Movies</h2>
+		<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+			<div ngxSlickItem *ngFor="let movie of trendingMovies" class="slide">
+				<img src="{{ this.apiService.api.posters + movie.poster_path }}" width="100%" height="100%" >
+				<!-- <button type="button" class="slick-prev">Previous</button>
+				<button type="button" class="slick-next">Next</button> -->
 			</div>
-		</div>
+		</ngx-slick-carousel>
+	</div>
+</section>
+
+<section>
+	<div class="container">
+		<h2 class="fw-bold">Trending Shows</h2>
+		<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+			<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
+				<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
+				<!-- <button type="button" class="slick-prev">Previous</button>
+				<button type="button" class="slick-next">Next</button> -->
+			</div>
+		</ngx-slick-carousel>
 	</div>
 </section>
 
