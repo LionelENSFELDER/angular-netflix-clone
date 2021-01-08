@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
+import { faCoffee, faSearch, faGift, faBell } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-root',
@@ -14,6 +15,10 @@ export class AppComponent implements OnInit {
 	trendingMoviesSubscription: Subscription;
 	trendingShows: any;
 	trendingShowsSubscription: Subscription;
+
+	faGift = faGift;
+	faSearch = faSearch;
+	faBell = faBell;
 
 	constructor(private apiService: TmdbService){
 

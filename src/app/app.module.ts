@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
 	declarations: [
@@ -14,7 +15,8 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 		BrowserModule,
 		AppRoutingModule,
 		HttpClientModule,
-		SlickCarouselModule
+		SlickCarouselModule,
+		FontAwesomeModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
