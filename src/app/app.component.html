@@ -1,10 +1,10 @@
-<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-transparent">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark position-fixed bg-transparent">
 	<div class="container-fluid">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-			<a class="navbar-brand pe-4" href="#">
+			<a class="navbar-brand" href="#">
 				<img src="../assets/img/netflix-logo.png" alt="" width="90px" class="img-responsive">
 			</a>
 			<ul class="navbar-nav">
@@ -45,30 +45,63 @@
 	</div>
 </nav>
 
-<section>
+<header class="position-relative">
 	<div class="container-fluid">
-		<h2 class="fw-bold">Trending Movies</h2>
-		<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-			<div ngxSlickItem *ngFor="let movie of trendingMovies" class="slide">
-				<img src="{{ this.apiService.api.posters + movie.poster_path }}" width="100%" height="100%" >
-				<!-- <button type="button" class="slick-prev">Previous</button>
-				<button type="button" class="slick-next">Next</button> -->
+		<div class="row">
+			<div class="col-12 col-md-6 ">
+				<img src="../assets/img/header-title.png" class="img-fluid" alt="...">
+				<p class="fs-2 fw-bold">Watch part 1 now</p>
+				<p class="fs-2 w-75">
+					He is a charmer, crook and master in the art of disguise. 
+					Haunted by the shadow of the past, he seeks a shine of truth.
+				</p>
+				<div>
+					<button type="button" class="btn btn-white btn-lg me-3"><fa-icon [icon]="faPlay" size="sm" class="me-2"></fa-icon>Play</button>
+					<button type="button" class="btn btn-grey btn-lg"><fa-icon [icon]="faInfoCircle" size="sm" class="me-2"></fa-icon>More Infos</button>
+				</div>
 			</div>
-		</ngx-slick-carousel>
+		</div>
 	</div>
-</section>
+</header>
 
-<section>
-	<div class="container-fluid">
-		<h2 class="fw-bold">Trending Shows</h2>
-		<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-			<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
-				<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
-				<!-- <button type="button" class="slick-prev">Previous</button>
-				<button type="button" class="slick-next">Next</button> -->
-			</div>
-		</ngx-slick-carousel>
-	</div>
-</section>
+<div class="content-container">
+	<section>
+		<div class="container-fluid">
+			<h2 class="fw-bold">Trending Movies</h2>
+			<ngx-slick-carousel class="carousel" #slickModal="" [config]="slideConfig">
+				<div ngxSlickItem *ngFor="let movie of trendingMovies" class="slide">
+					<img src="{{ this.apiService.api.posters + movie.poster_path }}" width="100%" height="100%" >
+					<!-- <button type="button" class="slick-prev">Previous</button>
+					<button type="button" class="slick-next">Next</button> -->
+				</div>
+			</ngx-slick-carousel>
+		</div>
+	</section>
+
+	<section>
+		<div class="container-fluid">
+			<h2 class="fw-bold">Trending Shows</h2>
+			<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+				<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
+					<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
+					<!-- <button type="button" class="slick-prev">Previous</button>
+					<button type="button" class="slick-next">Next</button> -->
+				</div>
+			</ngx-slick-carousel>
+		</div>
+	</section>
+	<section>
+		<div class="container-fluid">
+			<h2 class="fw-bold">Trending Shows</h2>
+			<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
+				<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
+					<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
+					<!-- <button type="button" class="slick-prev">Previous</button>
+					<button type="button" class="slick-next">Next</button> -->
+				</div>
+			</ngx-slick-carousel>
+		</div>
+	</section>
+</div>
 
 <router-outlet></router-outlet>

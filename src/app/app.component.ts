@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
-import { faCoffee, faSearch, faGift, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-root',
@@ -19,6 +19,8 @@ export class AppComponent implements OnInit {
 	faGift = faGift;
 	faSearch = faSearch;
 	faBell = faBell;
+	faPlay = faPlay;
+	faInfoCircle = faInfoCircle;
 
 	constructor(private apiService: TmdbService){
 
@@ -40,7 +42,7 @@ export class AppComponent implements OnInit {
 
 	slideConfig = {
 		"arrows" : true,
-		"slidesToShow" : 7,
+		"slidesToShow" : 10,
 		"slidesToScroll" : 1,
 		"dots" : true,
 		"infinite" : false,
