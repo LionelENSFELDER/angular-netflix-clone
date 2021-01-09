@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
@@ -24,6 +24,20 @@ export class AppComponent implements OnInit {
 
 	constructor(private apiService: TmdbService){
 
+	}
+
+	@HostListener('window:scroll', ['$event']) 
+	onScroll(e: Event): void {
+		let navbar = (document.getElementById('navbar'));
+		let position = (document.documentElement.scrollTop || document.body.scrollTop);
+		console.log(navbar, position);
+		if(position >= 200){
+			navbar.classList.remove('bg-transparent');
+			navbar.classList.add('bg-black');
+		}else{
+			navbar.classList.add('bg-transparent');
+			navbar.classList.remove('bg-black');
+		}
 	}
 
 	ngOnInit(): void{
