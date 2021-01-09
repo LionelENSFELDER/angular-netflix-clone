@@ -3,6 +3,7 @@ import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/cor
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
 	selector: 'app-root',
@@ -16,6 +17,7 @@ export class AppComponent implements OnInit {
 	trendingShows: any;
 	trendingShowsSubscription: Subscription;
 
+	//icons
 	faGift = faGift;
 	faSearch = faSearch;
 	faBell = faBell;
@@ -30,7 +32,6 @@ export class AppComponent implements OnInit {
 	onScroll(e: Event): void {
 		let navbar = (document.getElementById('navbar'));
 		let position = (document.documentElement.scrollTop || document.body.scrollTop);
-		console.log(navbar, position);
 		if(position >= 200){
 			navbar.classList.remove('bg-transparent');
 			navbar.classList.add('bg-black');
@@ -38,6 +39,12 @@ export class AppComponent implements OnInit {
 			navbar.classList.add('bg-transparent');
 			navbar.classList.remove('bg-black');
 		}
+	}
+
+	@HostListener('click', ['$event'])
+	onClickOnCard(e: Event){
+		let event = e;
+		let element = e.target;
 	}
 
 	ngOnInit(): void{

@@ -70,34 +70,7 @@
 			<h2 class="fw-bold">Trending Movies</h2>
 			<ngx-slick-carousel class="carousel" #slickModal="" [config]="slideConfig">
 				<div ngxSlickItem *ngFor="let movie of trendingMovies" class="slide">
-					<img src="{{ this.apiService.api.posters + movie.poster_path }}" width="100%" height="100%" >
-					<!-- <button type="button" class="slick-prev">Previous</button>
-					<button type="button" class="slick-next">Next</button> -->
-				</div>
-			</ngx-slick-carousel>
-		</div>
-	</section>
-
-	<section>
-		<div class="container-fluid">
-			<h2 class="fw-bold">Trending Shows</h2>
-			<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-				<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
-					<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
-					<!-- <button type="button" class="slick-prev">Previous</button>
-					<button type="button" class="slick-next">Next</button> -->
-				</div>
-			</ngx-slick-carousel>
-		</div>
-	</section>
-	<section>
-		<div class="container-fluid">
-			<h2 class="fw-bold">Trending Shows</h2>
-			<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
-				<div ngxSlickItem *ngFor="let show of trendingShows" class="slide">
-					<img src="{{ this.apiService.api.posters + show.poster_path }}" width="100%" height="100%" >
-					<!-- <button type="button" class="slick-prev">Previous</button>
-					<button type="button" class="slick-next">Next</button> -->
+					<app-card [poster]="this.apiService.api.posters + movie.poster_path"></app-card>
 				</div>
 			</ngx-slick-carousel>
 		</div>
