@@ -8,10 +8,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
 		trigger('hoverCard',[
 			state('default', style({
-				opacity: 1
 			})),
 			state('open', style({
-				opacity: 0
+				//transform: 'scale(1.2)',
 			})),
 			transition('default => open', [
 				animate('0.2s')
@@ -23,7 +22,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 	]
 })
 export class CardComponent implements OnInit {
-	@Input() poster: string;
+	@Input() movie: any;
+	//@Input() title: string;
+	//@Input() poster: string;
 
   constructor() { }
 

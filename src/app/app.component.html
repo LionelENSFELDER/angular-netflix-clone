@@ -68,13 +68,15 @@
 	<section>
 		<div class="container-fluid">
 			<h2 class="fw-bold">Trending Movies</h2>
-			<ngx-slick-carousel class="carousel" #slickModal="" [config]="slideConfig">
+			<ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
 				<div ngxSlickItem *ngFor="let movie of trendingMovies" class="slide">
-					<app-card [poster]="this.apiService.api.posters + movie.poster_path"></app-card>
+					<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie"></app-card>
 				</div>
 			</ngx-slick-carousel>
 		</div>
 	</section>
 </div>
+
+
 
 <router-outlet></router-outlet>
