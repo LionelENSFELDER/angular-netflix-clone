@@ -1,16 +1,12 @@
-<div class="card bg-transparent card-carousel" [@hoverCard]="isCardOpen ? 'open' : 'default'" (mouseover)="toggle()" (mouseout)="toggle()">
-
-    <img src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}" width="100%" height="100%" >
+<div class="card bg-transparent" [@hoverCard]="isCardHover ? 'hover' : 'default'" (mouseover)="toggle()" (mouseout)="toggle()">
+    <img src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}" width="50%">
 
     <div class="card-body bg-transparent">
         <h5 class="card-title">{{ movie.title }}</h5>
-        <p>
-            {{ movie.overview }}
-        </p>
     </div>
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + movie.id">
+    <button type="button" class="btn stretched-link" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + movie.id">
         Launch demo modal
     </button>
 
@@ -32,14 +28,7 @@
             </div>
         </div>
     </div>
-
-
-
 </div>
-
-
-
-
 <!-- <div class="card card-premodal" [style.opacity]="isCardOpen ? '1' : '0'">
     <img src="{{ poster }}" class="card-img-top" alt="...">
     <div class="card-body">

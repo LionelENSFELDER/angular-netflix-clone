@@ -4,10 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './card/card.component';
+import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 @NgModule({
 	declarations: [
@@ -19,8 +19,8 @@ import { CardComponent } from './card/card.component';
 		AppRoutingModule,
 		HttpClientModule,
 		BrowserAnimationsModule,
-		SlickCarouselModule,
-		FontAwesomeModule
+		FontAwesomeModule,
+		IvyCarouselModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -8,8 +8,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   animations: [
 		trigger('hoverCard',[
 			state('default', style({
+				
 			})),
-			state('open', style({
+			state('hover', style({
 				//transform: 'scale(1.2)',
 			})),
 			transition('default => open', [
@@ -23,8 +24,6 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 })
 export class CardComponent implements OnInit {
 	@Input() movie: any;
-	//@Input() title: string;
-	//@Input() poster: string;
 
   constructor() { }
 
@@ -32,9 +31,9 @@ export class CardComponent implements OnInit {
   }
 
 	//animations
-	isCardOpen = false;
+	isCardHover = false;
 	toggle() {
-		this.isCardOpen = !this.isCardOpen;
+		this.isCardHover = !this.isCardHover;
 	}
 
 }
