@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import {NgxTinySliderSettingsInterface} from 'ngx-tiny-slider';
 
 @Component({
 	selector: 'app-root',
@@ -11,6 +12,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 	styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+	tinySliderConfig: NgxTinySliderSettingsInterface;
 	title: string = 'Netflix-Clone';
 	trendingMovies: any;
 	trendingMoviesSubscription: Subscription;
@@ -59,46 +61,13 @@ export class AppComponent implements OnInit {
 		)
 		this.apiService.getTrendingShows();
 		this.apiService.emitTrendingShowsSubject();
-	}
 
-	slideConfig = {
-		"arrows" : true,
-		"slidesToShow" : 8,
-		"slidesToScroll" : 1,
-		"dots" : true,
-		"infinite" : false,
-		// "autoRotate" : true,
-		// "autoRotateAfter" : 5000,
-		//"autoplay" : true,
-		//"autoplaySpeed" : 1000,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 4,
-					slidesToScroll: 4,
-					infinite: true,
-					dots: true
-				}
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 2
-				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1
-				}
-			}
-			// You can unslick at a given breakpoint now by adding:
-			// settings: "unslick"
-			// instead of a settings object
-		]
+		this.tinySliderConfig = {
+			arrowKeys: true,
+			autoWidth: true,
+			gutter: 10,
+			controlsText: ['<<', '>>']
+		};
 	};
 	
 }

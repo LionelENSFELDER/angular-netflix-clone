@@ -1,13 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './card/card.component';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
+import {NgxTinySliderModule} from 'ngx-tiny-slider';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,10 @@ import {IvyCarouselModule} from 'angular-responsive-carousel';
 		HttpClientModule,
 		BrowserAnimationsModule,
 		FontAwesomeModule,
-		IvyCarouselModule
+		NgxTinySliderModule
+	],
+	exports: [
+		NgxTinySliderModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
