@@ -64,13 +64,28 @@
 	</div>
 </header>
 
-<ngx-tiny-slider [config]="tinySliderConfig">
-    <ng-container class="items" *ngFor="let movie of trendingMovies; index as i; first as isFirst">
-		<div class="item">
-			<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie"></app-card>
+<section>
+	<div class="">
+		<div class="row">
+			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
+				<div class="col" *ngFor="let movie of trendingMovies">
+					<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie"></app-card>
+				</div>
+			</div>
 		</div>
-	</ng-container>
-</ngx-tiny-slider>
+	</div>
+</section>
+
+<!-- <div>
+	<ngx-tiny-slider [config]="tinySliderConfig">
+		<ng-container class="items">
+			<div class="item" *ngFor="let movie of trendingMovies" [class.hidden]="sliderHidden">
+				<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie"></app-card>
+			</div>
+		</ng-container>
+	</ngx-tiny-slider>
+</div> -->
+
 	
 
 <router-outlet></router-outlet>

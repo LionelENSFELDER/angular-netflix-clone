@@ -34,6 +34,6 @@ export class CardComponent implements OnInit {
 	isCardHover = false;
 	toggle() {
 		this.isCardHover = !this.isCardHover;
-	}
+  }
 
 }

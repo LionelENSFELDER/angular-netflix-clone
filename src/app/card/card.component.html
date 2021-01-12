@@ -1,9 +1,9 @@
 <!-- [@hoverCard]="isCardHover ? 'hover' : 'default'" (mouseover)="toggle()" (mouseout)="toggle()" -->
-<div class="card bg-transparent">
+<div class="card h-100 bg-transparent">
     
     <div class="card-body bg-transparent">
 
-        <img src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}">
+        <img class="card-img-top" src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}">
         <h5 class="card-title">{{ movie.title }}</h5>
 
         

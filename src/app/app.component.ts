@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {NgxTinySliderSettingsInterface} from 'ngx-tiny-slider';
+import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinySliderService} from 'ngx-tiny-slider';
 
 @Component({
 	selector: 'app-root',
@@ -13,6 +13,7 @@ import {NgxTinySliderSettingsInterface} from 'ngx-tiny-slider';
 })
 export class AppComponent implements OnInit {
 	tinySliderConfig: NgxTinySliderSettingsInterface;
+	tinySliderConfigLazy: NgxTinySliderSettingsInterface;
 	title: string = 'Netflix-Clone';
 	trendingMovies: any;
 	trendingMoviesSubscription: Subscription;
@@ -68,6 +69,23 @@ export class AppComponent implements OnInit {
 			gutter: 10,
 			controlsText: ['<<', '>>']
 		};
+
+		this.tinySliderConfigLazy = {
+			arrowKeys: true,
+			waitForDom: true, // do not forget about this
+			autoWidth: true,
+			gutter: 10,
+			nav: true,
+			controlsText: ["<", ">"]
+		};
 	};
+
+	public listOfImages: Array<string> = [
+		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
+		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
+		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
+		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
+		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg"
+	];
 	
 }
