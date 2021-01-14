@@ -12,18 +12,49 @@
         </a>
         
         <div class="modal fade" id="{{'modal' + movie.id}}" tabindex="-1" [attr.aria-labelledby]="'ModalLabel' + movie.id" aria-hidden="true">
-            <div class="modal-dialog h-100">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-transparent">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="{{ 'ModalLabel' + movie.id }}">Modal title</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modal-header border-0 mh-container" 
+                        style="background-image: url('{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path }}'); background-size: cover"
+                    >   
+                        <div class="mh-infos">
+                            <h1 class="modal-title mb-3" id="{{ 'ModalLabel' + movie.id }}">{{ movie.title }}</h1>
+                            <div>
+                                <button type="button" class="btn btn-white btn-lg me-3">
+                                    <fa-icon [icon]="faPlay" size="sm" class="me-2"></fa-icon>Play
+                                </button>
+                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                                    <fa-icon class="" [icon]="faPlus" size="lg"></fa-icon>
+                                </button>
+                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                                    <fa-icon class="" [icon]="faThumbsUp" size="lg"></fa-icon>
+                                </button>
+                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                                    <fa-icon class="" [icon]="faThumbsDown" size="lg"></fa-icon>
+                                </button>
+                            </div>
+                        </div>
+                        <a class="bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+                            <fa-icon class="custom-close-icon" [icon]="faTimesCircle" size="lg"></fa-icon>
+                        </a>
                     </div>
-                    <div class="modal-body">
-                        {{ movie.overview }}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-body border-0">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="mb-3">
+                                    <span class="me-4">{{ movie.release_date }}</span>
+                                    <span class="badge rounded-pill bg-light text-dark">{{ movie.vote_average }}</span>
+                                </div>
+                                <span class="me-4">Genres:</span>
+                                <h5>Synopsis</h5>
+                                <p>
+                                    {{ movie.overview }}
+                                </p>
+                            </div>
+                            <div class="col-sm">
+                                One of three columns
+                            </div>
+                          </div>
                     </div>
                 </div>
             </div>

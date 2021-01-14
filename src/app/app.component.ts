@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
-import { faPlay, faSearch, faGift, faBell, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faSearch, faGift, faBell, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinySliderService} from 'ngx-tiny-slider';
 
@@ -12,13 +12,20 @@ import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinyS
 	styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+	//
 	tinySliderConfig: NgxTinySliderSettingsInterface;
 	tinySliderConfigLazy: NgxTinySliderSettingsInterface;
 	title: string = 'Netflix-Clone';
+
+	//movies
 	trendingMovies: any;
 	trendingMoviesSubscription: Subscription;
+	//tv shows
 	trendingShows: any;
 	trendingShowsSubscription: Subscription;
+	//genres
+	moviesGenresList: any;
+	moviesGenresListSubscription: Subscription;
 
 	//icons
 	faGift = faGift;
@@ -26,6 +33,7 @@ export class AppComponent implements OnInit {
 	faBell = faBell;
 	faPlay = faPlay;
 	faInfoCircle = faInfoCircle;
+	faTimesCircle = faTimesCircle;
 
 	constructor(private apiService: TmdbService){
 
@@ -51,18 +59,28 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit(): void{
+		//genres
+		this.moviesGenresListSubscription = this.apiService.moviesGenresListSubject.subscribe(
+			(moviesGenresList: any)=>{this.moviesGenresList = moviesGenresList}
+		)
+		this.apiService.getMoviesGenresList();
+		this.apiService.emitMoviesGenresListSubject();
+
+		//movies
 		this.trendingMoviesSubscription = this.apiService.trendingMoviesSubject.subscribe(
 			(trendingMovies: any)=>{this.trendingMovies = trendingMovies}
 		)
 		this.apiService.getTrendingMovies();
 		this.apiService.emitTrendingMoviesSubject();
 
+		//shows
 		this.trendingShowsSubscription = this.apiService.trendingShowsSubject.subscribe(
 			(trendingShows: any)=>{this.trendingShows = trendingShows}
 		)
 		this.apiService.getTrendingShows();
 		this.apiService.emitTrendingShowsSubject();
 
+		//sliders
 		this.tinySliderConfig = {
 			arrowKeys: true,
 			autoWidth: true,
