@@ -43,6 +43,7 @@ export class TmdbService implements OnInit{
 			(response: any)=>{
 				this.moviesGenresList = response;
 				console.log('Fetch genres from API', this.moviesGenresList);
+				this.emitMoviesGenresListSubject();
 			},
 			(error)=>{ console.log('Error !' + error)}
 		)

@@ -12,9 +12,6 @@ import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinyS
 	styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-	//
-	tinySliderConfig: NgxTinySliderSettingsInterface;
-	tinySliderConfigLazy: NgxTinySliderSettingsInterface;
 	title: string = 'Netflix-Clone';
 
 	//movies
@@ -81,29 +78,23 @@ export class AppComponent implements OnInit {
 		this.apiService.emitTrendingShowsSubject();
 
 		//sliders
-		this.tinySliderConfig = {
-			arrowKeys: true,
-			autoWidth: true,
-			gutter: 10,
-			controlsText: ['<<', '>>']
-		};
+		//tinySliderConfig: NgxTinySliderSettingsInterface;
+		//tinySliderConfigLazy: NgxTinySliderSettingsInterface;
+		// this.tinySliderConfig = {
+		// 	arrowKeys: true,
+		// 	autoWidth: true,
+		// 	gutter: 10,
+		// 	controlsText: ['<<', '>>']
+		// };
 
-		this.tinySliderConfigLazy = {
-			arrowKeys: true,
-			waitForDom: true, // do not forget about this
-			autoWidth: true,
-			gutter: 10,
-			nav: true,
-			controlsText: ["<", ">"]
-		};
-	};
+		// this.tinySliderConfigLazy = {
+		// 	arrowKeys: true,
+		// 	waitForDom: true, //do not forget about this
+		// 	autoWidth: true,
+		// 	gutter: 10,
+		// 	nav: true,
+		// 	controlsText: ["<", ">"]
+		//}
+	}
 
-	public listOfImages: Array<string> = [
-		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
-		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
-		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
-		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg",
-		"http://www.mattsorger.com/newsletterpics/gsw07_01.jpg"
-	];
-	
 }

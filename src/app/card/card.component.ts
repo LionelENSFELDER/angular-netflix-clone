@@ -25,7 +25,7 @@ import { faTimesCircle, faPlus, faThumbsUp, faThumbsDown, faPlay } from '@fortaw
 })
 export class CardComponent implements OnInit {
   @Input() movie: any;
-  @Input() moviesGenresList: any[];
+  @Input() genres: any;
   
   //icons
   faTimesCircle = faTimesCircle;
@@ -38,14 +38,37 @@ export class CardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.displayGenres();
   }
 
   //genres
-  // displayGenres(): void{
-  //   for(let i = 0; i < this.moviesGenresList.length; i++){
-  //     console.log(i);
-  //   }
-  // }
+  displayGenres(): string{
+    let itemGenres = this.movie.genre_ids;
+    let genresFromAPI = this.genres.genres;
+    let result: string = '';
+
+    //genresArray.forEach(element => console.log(element));
+
+    for(let i = 0; i < itemGenres.length; i++){
+
+		let genreId = itemGenres[i];
+		console.log(itemGenres[i]);
+
+		for(let y = 0; y < genresFromAPI.length; y++){
+
+			let actualGenre = genresFromAPI[y].id
+
+			if(genreId == actualGenre){
+
+				result += genresFromAPI[y].name + ', ';
+				console.log(result);
+			}
+			console.log(genresFromAPI[y].name);
+		}
+    }
+
+    return result;
+  }
 
 	//animations
 	isCardHover = false;

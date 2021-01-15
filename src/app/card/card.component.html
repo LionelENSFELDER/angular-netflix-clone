@@ -4,19 +4,13 @@
     <div class="card-body bg-transparent">
 
         <img class="card-img-top" src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}">
-        <h5 class="card-title">{{ movie.title }}</h5>
 
-        
-        <a class="btn stretched-link" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + movie.id">
-            Launch demo modal
-        </a>
+        <a class="stretched-link" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + movie.id"></a>
         
         <div class="modal fade" id="{{'modal' + movie.id}}" tabindex="-1" [attr.aria-labelledby]="'ModalLabel' + movie.id" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content bg-transparent">
-                    <div class="modal-header border-0 mh-container" 
-                        style="background-image: url('{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path }}'); background-size: cover"
-                    >   
+                    <div class="modal-header border-0 mh-container" style="background-image: url('{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path }}'); background-size: cover">   
                         <div class="mh-infos">
                             <h1 class="modal-title mb-3" id="{{ 'ModalLabel' + movie.id }}">{{ movie.title }}</h1>
                             <div>
@@ -43,16 +37,13 @@
                             <div class="col-sm">
                                 <div class="mb-3">
                                     <span class="me-4">{{ movie.release_date }}</span>
-                                    <span class="badge rounded-pill bg-light text-dark">{{ movie.vote_average }}</span>
+                                    <span class="badge rounded-pill bg-light text-dark me-4">{{ movie.vote_average }}</span>
+                                    <span id="genres" class="me-4">Genres: {{ displayGenres() }}</span>
                                 </div>
-                                <span class="me-4">Genres:</span>
-                                <h5>Synopsis</h5>
+                                <h5 class="mb-3">Synopsis</h5>
                                 <p>
                                     {{ movie.overview }}
                                 </p>
-                            </div>
-                            <div class="col-sm">
-                                One of three columns
                             </div>
                           </div>
                     </div>
