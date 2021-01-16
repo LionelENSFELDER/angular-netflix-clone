@@ -4,7 +4,6 @@ import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { trigger, state, style, animate, transition } from '@angular/animations';
-import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinySliderService} from 'ngx-tiny-slider';
 
 @Component({
 	selector: 'app-root',
@@ -12,8 +11,8 @@ import {NgxTinySliderSettingsInterface, NgxTinySliderInstanceInterface, NgxTinyS
 	styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
+	//string values
 	title: string = 'Netflix-Clone';
-
 	//movies
 	trendingMovies: any;
 	trendingMoviesSubscription: Subscription;
@@ -23,7 +22,6 @@ export class AppComponent implements OnInit {
 	//genres
 	moviesGenresList: any;
 	moviesGenresListSubscription: Subscription;
-
 	//icons
 	faGift = faGift;
 	faSearch = faSearch;
@@ -76,25 +74,6 @@ export class AppComponent implements OnInit {
 		)
 		this.apiService.getTrendingShows();
 		this.apiService.emitTrendingShowsSubject();
-
-		//sliders
-		//tinySliderConfig: NgxTinySliderSettingsInterface;
-		//tinySliderConfigLazy: NgxTinySliderSettingsInterface;
-		// this.tinySliderConfig = {
-		// 	arrowKeys: true,
-		// 	autoWidth: true,
-		// 	gutter: 10,
-		// 	controlsText: ['<<', '>>']
-		// };
-
-		// this.tinySliderConfigLazy = {
-		// 	arrowKeys: true,
-		// 	waitForDom: true, //do not forget about this
-		// 	autoWidth: true,
-		// 	gutter: 10,
-		// 	nav: true,
-		// 	controlsText: ["<", ">"]
-		//}
 	}
 
 }

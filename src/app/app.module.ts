@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CardComponent } from './card/card.component';
-import {NgxTinySliderModule} from 'ngx-tiny-slider';
 
 @NgModule({
 	declarations: [
@@ -20,11 +19,10 @@ import {NgxTinySliderModule} from 'ngx-tiny-slider';
 		AppRoutingModule,
 		HttpClientModule,
 		BrowserAnimationsModule,
-		FontAwesomeModule,
-		NgxTinySliderModule
+		FontAwesomeModule
 	],
 	exports: [
-		NgxTinySliderModule
+		
 	],
 	providers: [],
 	bootstrap: [AppComponent]
