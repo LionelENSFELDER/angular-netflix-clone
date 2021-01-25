@@ -65,12 +65,10 @@
 </header>
 
 <section>
-	<div class="">
-		<div class="row">
-			<div class="row row-cols-1 row-cols-md-3 row-cols-lg-6 g-4">
-				<div class="col" *ngFor="let movie of trendingMovies">
-					<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-card>
-				</div>
+	<div class="row">
+		<div class="row g-2 row-cols-1 row-cols-md-3 row-cols-lg-6">
+			<div class="col" *ngFor="let movie of trendingMovies">
+				<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-card>
 			</div>
 		</div>
 	</div>

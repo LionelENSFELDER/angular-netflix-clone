@@ -3,7 +3,6 @@ import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/cor
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
 import { faPlay, faSearch, faGift, faBell, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
-import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
 	selector: 'app-root',

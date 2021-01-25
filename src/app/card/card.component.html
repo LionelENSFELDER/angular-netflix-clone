@@ -1,70 +1,51 @@
 <!-- [@hoverCard]="isCardHover ? 'hover' : 'default'" (mouseover)="toggle()" (mouseout)="toggle()" -->
-<div class="card h-100 bg-transparent">
-    
+<div class="card h-100 border-0 bg-transparent hoverable-card">
     <div class="card-body bg-transparent">
-
         <img class="card-img-top" src="{{ 'https://image.tmdb.org/t/p/original' + movie.poster_path }}">
-
         <a class="stretched-link" data-bs-toggle="modal" [attr.data-bs-target]="'#modal' + movie.id"></a>
-        
-        <div class="modal fade" id="{{'modal' + movie.id}}" tabindex="-1" [attr.aria-labelledby]="'ModalLabel' + movie.id" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content bg-transparent">
-                    <div class="modal-header border-0 mh-container" style="background-image: url('{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path }}'); background-size: cover">   
-                        <div class="mh-infos">
-                            <h1 class="modal-title mb-3" id="{{ 'ModalLabel' + movie.id }}">{{ movie.title }}</h1>
-                            <div>
-                                <button type="button" class="btn btn-white btn-lg me-3">
-                                    <fa-icon [icon]="faPlay" size="sm" class="me-2"></fa-icon>Play
-                                </button>
-                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
-                                    <fa-icon class="" [icon]="faPlus" size="lg"></fa-icon>
-                                </button>
-                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
-                                    <fa-icon class="" [icon]="faThumbsUp" size="lg"></fa-icon>
-                                </button>
-                                <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
-                                    <fa-icon class="" [icon]="faThumbsDown" size="lg"></fa-icon>
-                                </button>
-                            </div>
-                        </div>
-                        <a class="bg-transparent" data-bs-dismiss="modal" aria-label="Close">
-                            <fa-icon class="custom-close-icon" [icon]="faTimesCircle" size="lg"></fa-icon>
-                        </a>
+    </div>
+</div>
+
+<div class="modal fade" id="{{'modal' + movie.id}}" tabindex="-1" [attr.aria-labelledby]="'ModalLabel' + movie.id" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content bg-transparent">
+            <div class="modal-header border-0 mh-container" style="background-image: url('{{ 'https://image.tmdb.org/t/p/original' + movie.backdrop_path }}'); background-size: cover">   
+                <div class="mh-infos">
+                    <h1 class="modal-title mb-3" id="{{ 'ModalLabel' + movie.id }}">{{ movie.title }}</h1>
+                    <div>
+                        <button type="button" class="btn btn-white btn-lg me-3">
+                            <fa-icon [icon]="faPlay" size="sm" class="me-2"></fa-icon>Play
+                        </button>
+                        <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                            <fa-icon class="" [icon]="faPlus" size="lg"></fa-icon>
+                        </button>
+                        <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                            <fa-icon class="" [icon]="faThumbsUp" size="lg"></fa-icon>
+                        </button>
+                        <button type="button" class="btn rounded-circle btn-grey btn-lg btn-circle border border-white me-2">
+                            <fa-icon class="" [icon]="faThumbsDown" size="lg"></fa-icon>
+                        </button>
                     </div>
-                    <div class="modal-body border-0">
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="mb-3">
-                                    <span class="me-4">{{ movie.release_date }}</span>
-                                    <span class="badge rounded-pill bg-light text-dark me-4">{{ movie.vote_average }}</span>
-                                    <span id="genres" class="me-4">Genres: {{ displayGenres() }}</span>
-                                </div>
-                                <h5 class="mb-3">Synopsis</h5>
-                                <p>
-                                    {{ movie.overview }}
-                                </p>
-                            </div>
-                          </div>
+                </div>
+                <a class="bg-transparent" data-bs-dismiss="modal" aria-label="Close">
+                    <fa-icon class="custom-close-icon" [icon]="faTimesCircle" size="lg"></fa-icon>
+                </a>
+            </div>
+            <div class="modal-body border-0">
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <span class="me-4">{{ movie.release_date }}</span>
+                            <span class="badge rounded-pill bg-light text-dark me-4">{{ movie.vote_average }}</span>
+                            <span id="genres" class="me-4">Genres: {{ displayGenres() }}</span>
+                        </div>
+                        <h5 class="mb-3">Synopsis</h5>
+                        <p>
+                            {{ movie.overview }}
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
-
 </div>
-
-
-
-<!-- <div class="card card-premodal" [style.opacity]="isCardOpen ? '1' : '0'">
-<img src="{{ poster }}" class="card-img-top" alt="...">
-<div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-</div>
-</div> -->
-
-
-

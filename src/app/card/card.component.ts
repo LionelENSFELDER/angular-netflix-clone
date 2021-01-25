@@ -5,23 +5,7 @@ import { faTimesCircle, faPlus, faThumbsUp, faThumbsDown, faPlay } from '@fortaw
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.sass'],
-//   animations: [
-// 		trigger('hoverCard',[
-// 			state('default', style({
-				
-// 			})),
-// 			state('hover', style({
-// 				//transform: 'scale(1.2)',
-// 			})),
-// 			transition('default => open', [
-// 				animate('0.2s')
-// 			]),
-// 			transition('open => default', [
-// 				animate('0.2s')
-// 			])
-// 		])
-// 	]
+  styleUrls: ['./card.component.sass']
 })
 export class CardComponent implements OnInit {
   @Input() movie: any;
@@ -52,7 +36,6 @@ export class CardComponent implements OnInit {
     for(let i = 0; i < itemGenres.length; i++){
 
 		let genreId = itemGenres[i];
-		console.log(itemGenres[i]);
 
 		for(let y = 0; y < genresFromAPI.length; y++){
 
@@ -61,19 +44,11 @@ export class CardComponent implements OnInit {
 			if(genreId == actualGenre){
 
 				result += genresFromAPI[y].name + ', ';
-				console.log(result);
 			}
-			console.log(genresFromAPI[y].name);
 		}
     }
 
     return result;
-  }
-
-	//animations
-	isCardHover = false;
-	toggle() {
-		this.isCardHover = !this.isCardHover;
   }
 
 }
