@@ -8,10 +8,18 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from './card/card.component';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { Routes } from '@angular/router';
+
+// const appRoutes: Routes = [
+// 	{ path: '', component: AppareilViewComponent },
+// 	{ path: 'auth', component: AuthComponent }
+// ];
+
 @NgModule({
 	declarations: [
 		AppComponent,
-		CardComponent
+		CardComponent,
 	],
 	imports: [
 		BrowserModule,

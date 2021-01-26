@@ -1,23 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { trigger, state, style, animate, transition } from '@angular/animations';
-import { faTimesCircle, faPlus, faThumbsUp, faThumbsDown, faPlay } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-card',
 	templateUrl: './card.component.html',
-	styleUrls: ['./card.component.sass']
+	styleUrls: ['./card.component.sass',]
 })
 export class CardComponent implements OnInit {
 	@Input() movie: any;
 	@Input() genres: any;
-
-	//icons
-	faTimesCircle = faTimesCircle;
-	faPlus = faPlus;
-	faThumbsUp = faThumbsUp;
-	faThumbsDown = faThumbsDown;
-	faPlay = faPlay;
-
 
 	constructor() { }
 

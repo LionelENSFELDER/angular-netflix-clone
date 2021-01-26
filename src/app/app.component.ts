@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
-import { faPlay, faSearch, faGift, faBell, faInfoCircle, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
 	selector: 'app-root',
@@ -21,13 +20,6 @@ export class AppComponent implements OnInit {
 	//genres
 	moviesGenresList: any;
 	moviesGenresListSubscription: Subscription;
-	//icons
-	faGift = faGift;
-	faSearch = faSearch;
-	faBell = faBell;
-	faPlay = faPlay;
-	faInfoCircle = faInfoCircle;
-	faTimesCircle = faTimesCircle;
 
 	constructor(private apiService: TmdbService){
 
@@ -59,14 +51,12 @@ export class AppComponent implements OnInit {
 		)
 		this.apiService.getMoviesGenresList();
 		this.apiService.emitMoviesGenresListSubject();
-
 		//movies
 		this.trendingMoviesSubscription = this.apiService.trendingMoviesSubject.subscribe(
 			(trendingMovies: any)=>{this.trendingMovies = trendingMovies}
 		)
 		this.apiService.getTrendingMovies();
 		this.apiService.emitTrendingMoviesSubject();
-
 		//shows
 		this.trendingShowsSubscription = this.apiService.trendingShowsSubject.subscribe(
 			(trendingShows: any)=>{this.trendingShows = trendingShows}
