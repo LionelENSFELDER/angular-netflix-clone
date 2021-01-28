@@ -28,13 +28,15 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/uikit/dist/css/uikit.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+              "node_modules/swiper/swiper-bundle.css",
               "src/styles.sass"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/swiper/swiper-bundle.js",
+              "node_modules/uikit/dist/js/uikit.js"
             ]
           },
           "configurations": {

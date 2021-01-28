@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark position-fixed bg-transparent">
+<!-- <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark position-fixed bg-transparent">
 	<div class="container-fluid">
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -62,9 +62,76 @@
 			</div>
 		</div>
 	</div>
+</header> -->
+
+
+<header>
+	<div class="uk-preserve-color">
+		<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-dark; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+			<nav class="uk-navbar-container">
+				<div class="uk-container uk-container-expand">
+					<div uk-navbar>
+						<ul class="uk-navbar-nav">
+							<a class="uk-navbar-item uk-logo" href="#">
+								<img class="" src="../assets/img/netflix-logo.png" alt="" width="90px">
+							</a>
+							<li class="uk-active"><a href="#">Active</a></li>
+							<li>
+								<a href="#">Parent</a>
+								<div class="uk-navbar-dropdown">
+									<ul class="uk-nav uk-navbar-dropdown-nav">
+										<li class="uk-active"><a href="#">Active</a></li>
+										<li><a href="#">Item</a></li>
+										<li><a href="#">Item</a></li>
+									</ul>
+								</div>
+							</li>
+							<li><a href="#">Item</a></li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		<div class="uk-section uk-light">
+			<div class="uk-container">
+	
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+	
+				<p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+	
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</p>
+	
+			</div>
+		</div>
+	</div>
 </header>
 
 <section>
+	<h1>Trending Movies</h1>
+	<swiper
+      [slidesPerView]="7"
+      [spaceBetween]="20"
+    >
+      <ng-template swiperSlide *ngFor="let movie of trendingMovies">
+		<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-card>
+	  </ng-template>
+    </swiper>
+</section>
+
+<section>
+	<h1>Trending Shows</h1>
+	<swiper
+      [slidesPerView]="7"
+      [spaceBetween]="20"
+    >
+      <ng-template swiperSlide *ngFor="let show of trendingShows">
+		<app-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-card>
+	  </ng-template>
+    </swiper>
+</section>
+
+
+<!-- <section>
 	<div class="row">
 		<div class="row g-2 row-cols-1 row-cols-md-3 row-cols-lg-6">
 			<div class="col" *ngFor="let movie of trendingMovies">
@@ -72,9 +139,9 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
 
-<footer class="py-5">
+<!-- <footer class="py-5">
 	<div class="container py-5">
 		<div class="row mb-3">
 			<div class="col-sm">
@@ -118,6 +185,6 @@
 			</p>
 		</div>
 	</div>
-</footer>
+</footer> -->
 
 <router-outlet></router-outlet>

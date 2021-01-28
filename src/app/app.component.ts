@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
+import SwiperCore from 'swiper/core';
 
 @Component({
 	selector: 'app-root',
