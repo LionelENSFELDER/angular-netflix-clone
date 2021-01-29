@@ -67,27 +67,105 @@
 
 <header>
 	<div class="uk-preserve-color">
-		<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-dark; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+		<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-dark; cls-inactive: uk-navbar-transparent uk-light; top: 60">
 			<nav class="uk-navbar-container">
 				<div class="uk-container uk-container-expand">
 					<div uk-navbar>
-						<ul class="uk-navbar-nav">
-							<a class="uk-navbar-item uk-logo" href="#">
-								<img class="" src="../assets/img/main-logo.png" alt="" width="90px">
-							</a>
-							<li class="uk-active"><a href="#">Active</a></li>
-							<li>
-								<a href="#">Parent</a>
-								<div class="uk-navbar-dropdown">
-									<ul class="uk-nav uk-navbar-dropdown-nav">
-										<li class="uk-active"><a href="#">Active</a></li>
-										<li><a href="#">Item</a></li>
-										<li><a href="#">Item</a></li>
-									</ul>
-								</div>
-							</li>
-							<li><a href="#">Item</a></li>
-						</ul>
+						<!-- hamburger menu -->
+						<div class="uk-navbar-left uk-margin-left uk-margin-top uk-hidden@m">
+							<img class="uk-margin-right" src="../assets/img/main-logo.png" alt="" width="90px">
+							<ul class="uk-navbar-nav">
+								<li class="">
+									<i class="fas fa-bars fa-2x" uk-toggle="target: #offcanvas-slide"></i>
+									<div id="offcanvas-slide" uk-offcanvas="overlay: true">
+										<div class="uk-offcanvas-bar">
+									
+											<button class="uk-offcanvas-close" type="button" uk-close></button>
+									
+											<ul class="uk-list">
+												<li class="uk-active"><a href="#">Home</a></li>
+												<li class=""><a href="#">Shows</a></li>
+												<li class=""><a href="#">Movies</a></li>
+												<li class=""><a href="#">Most watching</a></li>
+												<li class=""><a href="#">Watchlist</a></li>
+												<hr>
+												<li class=""><a href="#">Live</a></li>
+												<li class=""><a href="#">Kids</a></li>
+												<li class=""><a href="#"><i class="fas fa-gift fa-lg"></i></a></li>
+												<li class=""><a href="#"><i class="fas fa-bell fa-lg"></i></a></li>
+												<hr>
+												<li><a href="#">Manage profiles</a></li>
+												<li><a href="#">Account</a></li>
+												<li><a href="#">Help center</a></li>
+												<li><a href="#">Logout</a></li>
+											</ul>
+									
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<!-- desktop menu -->
+						<div class="uk-navbar-left">
+							<ul class="uk-navbar-nav uk-visible@m">
+								<a class="uk-navbar-item uk-logo" href="#">
+									<img class="" src="../assets/img/main-logo.png" alt="" width="90px">
+								</a>
+								<li class="uk-active"><a href="#">Home</a></li>
+								<li class=""><a href="#">Shows</a></li>
+								<li class=""><a href="#">Movies</a></li>
+								<li class=""><a href="#">Most watching</a></li>
+								<li class=""><a href="#">Watchlist</a></li>
+							</ul>
+						</div>
+						<div class="uk-navbar-right">
+							<ul class="uk-navbar-nav uk-visible@m">
+								<li class="">
+									<a href="#">
+										<i class="fas fa-search fa-lg"></i>
+									</a>
+								</li>
+								<li class=""><a href="#">Live</a></li>
+								<li class=""><a href="#">Kids</a></li>
+								<li class="">
+									<a href="#">
+										<i class="fas fa-gift fa-lg"></i>
+									</a>
+								</li>
+								<li class="">
+									<a href="#">
+										<i class="fas fa-bell fa-lg"></i>
+									</a>
+								</li>
+								<li class="">
+									<a>
+										<img class="uk-margin-auto-vertical uk-margin-auto" src="../assets/img/profile.png" alt="" width="35px" class="">
+										<span uk-icon="icon: triangle-down"></span>
+									</a>
+									<div uk-dropdown>
+										<ul class="uk-nav uk-dropdown-nav">
+											<li>
+												<a href="#">
+												<img class="uk-margin-auto-vertical uk-margin-auto" src="../assets/img/profile.png" alt="" width="35px" class="">
+												Océane
+												</a>
+											</li>
+											<li>
+												<a href="#">
+												<img class="uk-margin-auto-vertical uk-margin-auto" src="../assets/img/profile.png" alt="" width="35px" class="">
+												Kids
+												</a>
+											</li>
+											<li><a href="#">Manage profiles</a></li>
+											<li class="uk-nav-divider"></li>
+											<li><a href="#">Account</a></li>
+											<li><a href="#">Help center</a></li>
+											<li><a href="#">Logout</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</nav>
@@ -130,6 +208,17 @@
     </swiper>
 </section>
 
+<section class="uk-margin-medium-bottom">
+	<h2>Trending Shows</h2>
+	<swiper
+      [slidesPerView]="7"
+      [spaceBetween]="20"
+    >
+      <ng-template swiperSlide *ngFor="let show of trendingShows">
+		<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+	  </ng-template>
+    </swiper>
+</section>
 <section class="uk-margin-medium-bottom">
 	<h2>Trending Shows</h2>
 	<swiper
