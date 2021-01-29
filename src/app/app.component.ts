@@ -15,6 +15,9 @@ export class AppComponent implements OnInit {
 	//movies
 	trendingMovies: any;
 	trendingMoviesSubscription: Subscription;
+	//top rated movies
+	topRatedMovies: any;
+	topRatedMoviesSubscription: Subscription;
 	//tv shows
 	trendingShows: any;
 	trendingShowsSubscription: Subscription;
@@ -46,19 +49,28 @@ export class AppComponent implements OnInit {
 	}
 
 	ngOnInit(): void{
-		//genres
+		//movies genres
 		this.moviesGenresListSubscription = this.apiService.moviesGenresListSubject.subscribe(
 			(moviesGenresList: any)=>{this.moviesGenresList = moviesGenresList}
 		)
 		this.apiService.getMoviesGenresList();
 		this.apiService.emitMoviesGenresListSubject();
-		//movies
+
+		//trending movies
 		this.trendingMoviesSubscription = this.apiService.trendingMoviesSubject.subscribe(
 			(trendingMovies: any)=>{this.trendingMovies = trendingMovies}
 		)
 		this.apiService.getTrendingMovies();
 		this.apiService.emitTrendingMoviesSubject();
-		//shows
+
+		//top rated movies
+		this.topRatedMoviesSubscription = this.apiService.topRatedMoviesSubject.subscribe(
+			(topRatedMovies: any)=>{this.topRatedMovies = topRatedMovies}
+		)
+		this.apiService.getTopRatedMovies();
+		this.apiService.emitTopRatedMoviesSubject();
+
+		//trending shows
 		this.trendingShowsSubscription = this.apiService.trendingShowsSubject.subscribe(
 			(trendingShows: any)=>{this.trendingShows = trendingShows}
 		)

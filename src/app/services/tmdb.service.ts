@@ -18,18 +18,21 @@ export class TmdbService implements OnInit{
 	private trendingMovies: any[] = [];
 	private trendingShows: any[] = [];
 	private moviesGenresList: any[] = [];
+	private topRatedMovies: any[] = [];
 	private api: any= {
 		key: '3047ca0f5fac291860193498b5d24f44',
 		url: 'https://api.themoviedb.org/3/',
 		posters: 'https://image.tmdb.org/t/p/original',
 		trendingMoviesUrl: 'https://api.themoviedb.org/3/trending/movie/week?api_key=',
 		trendingShowsUrl: 'https://api.themoviedb.org/3/trending/tv/week?api_key=',
-		moviesGenresURL: 'https://api.themoviedb.org/3/genre/movie/list?api_key='
+		moviesGenresUrl: 'https://api.themoviedb.org/3/genre/movie/list?api_key=',
+		topRatedMoviesUrl: 'https://api.themoviedb.org/3/movie/top_rated?api_key='
 	}
 
 	ngOnInit(): void {
 		this.getTrendingMovies();
 		this.getMoviesGenresList();
+		this.getTopRatedMovies();
 	}
 
 	moviesGenresListSubject = new Subject<any[]>();
@@ -38,7 +41,7 @@ export class TmdbService implements OnInit{
 	}
 	getMoviesGenresList(): void{
 		this.httpClient
-		.get<any[]>(this.api.moviesGenresURL + this.api.key)
+		.get<any[]>(this.api.moviesGenresUrl + this.api.key)
 		.subscribe(
 			(response: any)=>{
 				this.moviesGenresList = response;
@@ -81,6 +84,23 @@ export class TmdbService implements OnInit{
 				this.emitTrendingShowsSubject();
 			},
 			(error)=>{ console.log('Error !' + error)}
+		)
+	}
+
+	topRatedMoviesSubject = new Subject<any[]>();
+	emitTopRatedMoviesSubject(){
+		this.topRatedMoviesSubject.next(this.topRatedMovies)
+	}
+	getTopRatedMovies(){
+		this.httpClient
+		.get<any[]>(this.api.topRatedMoviesUrl + this.api.key)
+		.subscribe(
+			(response: any)=>{
+				this.topRatedMovies = Object.values(response.results);
+				console.log('Fetch top rated movies from API', this.topRatedMovies);
+				this.emitTopRatedMoviesSubject();
+			},
+			(error)=>{ console.log('Error top rated movies!' + error)}
 		)
 	}
 }

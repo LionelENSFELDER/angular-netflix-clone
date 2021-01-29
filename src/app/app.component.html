@@ -73,7 +73,7 @@
 					<div uk-navbar>
 						<ul class="uk-navbar-nav">
 							<a class="uk-navbar-item uk-logo" href="#">
-								<img class="" src="../assets/img/netflix-logo.png" alt="" width="90px">
+								<img class="" src="../assets/img/main-logo.png" alt="" width="90px">
 							</a>
 							<li class="uk-active"><a href="#">Active</a></li>
 							<li>
@@ -106,26 +106,38 @@
 	</div>
 </header>
 
-<section>
-	<h1>Trending Movies</h1>
+<section class="uk-margin-medium-bottom">
+	<h2>Trending Movies</h2>
 	<swiper
       [slidesPerView]="7"
       [spaceBetween]="20"
     >
       <ng-template swiperSlide *ngFor="let movie of trendingMovies">
-		<app-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-card>
+		<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
 	  </ng-template>
     </swiper>
 </section>
 
-<section>
-	<h1>Trending Shows</h1>
+<section class="uk-margin-medium-bottom">
+	<h2>Top Rated Movies</h2>
+	<swiper
+      [slidesPerView]="7"
+      [spaceBetween]="20"
+    >
+      <ng-template swiperSlide *ngFor="let movie of topRatedMovies">
+		<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
+	  </ng-template>
+    </swiper>
+</section>
+
+<section class="uk-margin-medium-bottom">
+	<h2>Trending Shows</h2>
 	<swiper
       [slidesPerView]="7"
       [spaceBetween]="20"
     >
       <ng-template swiperSlide *ngFor="let show of trendingShows">
-		<app-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-card>
+		<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
 	  </ng-template>
     </swiper>
 </section>
