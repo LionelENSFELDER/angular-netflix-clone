@@ -25,6 +25,25 @@ export class AppComponent implements OnInit {
 	moviesGenresList: any;
 	moviesGenresListSubscription: Subscription;
 
+	sliderConfig = {
+		slidesPerView: 1,
+		spaceBetween: 20,
+		breakpoints: {
+			640: {
+			  slidesPerView: 2,
+			  spaceBetween: 20,
+			},
+			768: {
+			  slidesPerView: 4,
+			  spaceBetween: 20,
+			},
+			1024: {
+			  slidesPerView: 7,
+			  spaceBetween: 20,
+			},
+		  }
+	}
+
 	constructor(private apiService: TmdbService){
 
 	}

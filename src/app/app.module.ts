@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SwiperModule } from 'swiper/angular';
+import { SwiperModule  } from 'swiper/angular';
 
 import { AppComponent } from './app.component';
 import { HomeViewComponent } from './views/home-view/home-view.component';
