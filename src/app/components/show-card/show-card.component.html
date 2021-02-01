@@ -9,8 +9,11 @@
             <div class="uk-modal-dialog uk-modal-body uk-card uk-padding-remove">
 
                 <div class="uk-card-header uk-height-medium uk-background-cover uk-position-relative" [attr.data-src]="'https://image.tmdb.org/t/p/original' + show.backdrop_path" uk-img>
+                    <button class="close-icon uk-modal-close">
+                        <i class="fas fa-times-circle fa-2x"></i>
+                    </button>
                     <div class="modal-header-buttons-container">
-                        <button class="uk-button button-white uk-button-large uk-margin-small-right">
+                        <button class="uk-button button-white uk-button-large uk-margin-small-right uk-width-1-1 uk-width-1-2@s">
                             <i class="fas fa-play fa-lg uk-margin-small-right"></i>Play
                         </button>
                         <button class="button-circle uk-margin-small-right">
