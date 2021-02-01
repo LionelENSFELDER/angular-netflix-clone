@@ -2,7 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, ViewEncapsulation, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { TmdbService } from './services/tmdb.service';
-import SwiperCore from 'swiper/core';
+import SwiperCore, { Navigation, Autoplay } from 'swiper/core';
+// install Swiper components
+SwiperCore.use([Navigation, Autoplay]);
 
 @Component({
 	selector: 'app-root',
@@ -28,6 +30,11 @@ export class AppComponent implements OnInit {
 	sliderConfig = {
 		slidesPerView: 1,
 		spaceBetween: 20,
+		autoplay: false,
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
 		breakpoints: {
 			640: {
 			  slidesPerView: 2,
@@ -40,8 +47,8 @@ export class AppComponent implements OnInit {
 			1024: {
 			  slidesPerView: 7,
 			  spaceBetween: 20,
-			},
-		  }
+			}
+		}
 	}
 
 	constructor(private apiService: TmdbService){

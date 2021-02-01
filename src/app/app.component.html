@@ -131,64 +131,68 @@
 </header>
 
 <div class="uk-container uk-container-expand content-container">
+
 	<section class="uk-margin-medium-bottom">
 		<h3>Trending Movies</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let movie of trendingMovies">
-			<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let movie of trendingMovies">
+				<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
+			</ng-template>
+			<ng-template class="swiper-button-prev"></ng-template>
+  			<ng-template class="swiper-button-next"></ng-template>
 		</swiper>
 	</section>
 
 	<section class="uk-margin-medium-bottom">
 		<h3>Top Rated Movies</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let movie of topRatedMovies">
-			<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let movie of topRatedMovies">
+				<app-movie-card [poster]="this.apiService.api.posters + movie.poster_path" [movie]="movie" [genres]="moviesGenresList"></app-movie-card>
+			</ng-template>
 		</swiper>
 	</section>
 
 	<section class="uk-margin-medium-bottom">
 		<h3>Trending Shows</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let show of trendingShows">
-			<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let show of trendingShows">
+				<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+			</ng-template>
 		</swiper>
 	</section>
 	<section class="uk-margin-medium-bottom">
 		<h3>Top Rated Shows</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let show of trendingShows">
-			<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let show of trendingShows">
+				<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+			</ng-template>
 		</swiper>
 	</section>
 	<section class="uk-margin-medium-bottom">
 		<h3>Action</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let show of trendingShows">
-			<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let show of trendingShows">
+				<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+			</ng-template>
 		</swiper>
 	</section>
 	<section class="uk-margin-medium-bottom">
 		<h3>Drama</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let show of trendingShows">
-			<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let show of trendingShows">
+				<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+			</ng-template>
 		</swiper>
 	</section>
 	<section class="uk-margin-medium-bottom">
 		<h3>Comedy</h3>
 		<swiper [config]="sliderConfig">
-		<ng-template swiperSlide *ngFor="let show of trendingShows">
-			<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
-		</ng-template>
+			<ng-template swiperSlide *ngFor="let show of trendingShows">
+				<app-show-card [poster]="this.apiService.api.posters + show.poster_path" [show]="show" [genres]="moviesGenresList"></app-show-card>
+			</ng-template>
 		</swiper>
 	</section>
+
 </div>
 
 
