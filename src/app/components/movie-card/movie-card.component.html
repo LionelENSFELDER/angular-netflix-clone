@@ -29,9 +29,9 @@
                 </div>
                 <div class="uk-card-body">
                     <h2 class="uk-modal-title">{{ movie.title }}</h2>
-                    <span class="">{{ movie.release_date }}</span>
-                    <span class=""> | Note{{ movie.vote_average }} | </span>
-                    <span id="genres" class="">Genres: {{ displayGenres() }}</span>
+                    <div class="">Release date : {{ movie.release_date }}</div>
+                    <div class="">Note : {{ movie.vote_average }}</div>
+                    <div id="genres" class="">Genres : {{ displayGenres() }}</div>
                     <p>{{ movie.overview }}</p>
                 </div>
             </div>

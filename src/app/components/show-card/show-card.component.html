@@ -29,9 +29,9 @@
                 </div>
                 <div class="uk-card-body">
                     <h2 class="uk-modal-title">{{ show.title }}</h2>
-                    <span class="">{{ show.release_date }}</span>
-                    <span class=""> | Note{{ show.vote_average }} | </span>
-                    <span id="genres" class="">Genres: {{ displayGenres() }}</span>
+                    <div class="">First release : {{ show.first_air_date }}</div>
+                    <div class="">Note : {{ show.vote_average }}</div>
+                    <div id="genres" class="">Genres : {{ displayGenres() }}</div>
                     <p>{{ show.overview }}</p>
                 </div>
             </div>
